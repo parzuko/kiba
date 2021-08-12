@@ -39,7 +39,7 @@ const runCode = (code, func) => {
     });
   }
 
-  fs.writeFile(fullName, code, writeFileAndExecute(error, func));
+  fs.writeFile(FULLNAME, code, writeFileAndExecute(func));
 };
 
 const writeFileAndExecute = (error, func) => {
