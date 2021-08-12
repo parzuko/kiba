@@ -1,7 +1,9 @@
-# V2: Remote Code Execution System
+# Kiba V3: Remote Code Execution Engine
 
-> This is built without using Docker Containers. It can handle multiple requests but will exlpode at scale. 
+> This project is built using NodeJs, and Docker. It is inspired from [Piston](engineer-man.com)
 
-> Each File is Generated Once and then run.
-> This does use a jobqueue made using Bull
-
+### Goals -> Deadline September 26
+1. Finish API
+2. Create Docker Containers
+3. Start Hosting
+4. Create IDE
