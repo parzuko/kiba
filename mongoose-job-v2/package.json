@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "bull": "^3.28.1",
     "cors": "^2.8.5",
