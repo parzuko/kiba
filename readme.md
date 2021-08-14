@@ -12,3 +12,19 @@
 #### Notes while running:
 
 This project uses `no-camel`. Essentially, instead of using traditional camelCase, it will be using `snake_script`
+
+Currently, structure looks like
+
+```
+api
+    src
+        api
+            kiba.js
+        index.js
+docker-compose.yaml
+```
+
+At `src/index.js` the main express app starts. It calls the api inside `api/kiba` and we have our first route working at the moment using `node index`:
+
+## `GET /api/kiba`
+Currently returns all good boss
