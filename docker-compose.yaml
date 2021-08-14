@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  api:
+    build: api
+    restart: always
+    container_name: kiba_api
+    ports:
+      - 2000:2000
+    volumes:
+      - ./api:/kiba_api
