@@ -7,3 +7,8 @@
 2. Create Docker Containers
 3. Start Hosting
 4. Create IDE
+
+
+#### Notes while running:
+
+This project uses `no-camel`. Essentially, instead of using traditional camelCase, it will be using `snake_script`

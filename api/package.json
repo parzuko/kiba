@@ -1,0 +1,12 @@
+{
+  "name": "kiba-api",
+  "version": "0.1.0",
+  "description": "API for Kiba - a remote code execution engine",
+  "main": "src/index.js",
+  "repository": "https://github.com/parzuko/kiba",
+  "author": "Jivansh Sharma (@parzuko)",
+  "license": "MIT",
+  "dependencies": {
+    "nocamel": "^1.0.2"
+  }
+}
