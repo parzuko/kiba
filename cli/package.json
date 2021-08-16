@@ -1,0 +1,16 @@
+{
+  "name": "kiba-cli",
+  "version": "0.1.0",
+  "description": "Kiba Execution Engine CLI tools",
+  "main": "index.js",
+  "author": "Jivansh Sharma (parzuko)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.2",
+    "minimatch": "^3.0.4",
+    "nocamel": "^1.0.2",
+    "semver": "^7.3.5",
+    "yargs": "^17.1.1"
+  }
+}
