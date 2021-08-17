@@ -111,3 +111,46 @@ const options = [
         validators: [],
     },
 ];
+
+logger.info(`Loading Configuration from environment`);
+
+let errored = false;
+
+let config = {};
+
+options.forEach(option => {
+    const env_key = "KIBA_" + option.key.to_upper_case();
+
+    const parser = option.parser || (x => x);
+
+    const env_val = process.env[env_key];
+
+    const parsed_val = parser(env_val);
+
+    const value = env_val || option.default;
+
+    option.validators.for_each(validator => {
+        let response = null;
+        if (env_val) response = validator(parsed_val, env_val);
+        else response = validator(value, value);
+
+        if (response !== true) {
+            errored = true;
+            logger.error(
+                `Config option ${option.key} failed validation:`,
+                response
+            );
+            return;
+        }
+    });
+
+    config[option.key] = value;
+});
+
+if (errored) {
+    process.exit(1);
+}
+
+logger.info("Configuration successfully loaded");
+
+module.exports = config;
