@@ -12,6 +12,7 @@
     "is-docker": "^2.2.1",
     "logplease": "^1.2.15",
     "nocamel": "^1.0.2",
+    "node-fetch": "^2.6.1",
     "waitpid": "git+https://github.com/HexF/node-waitpid.git"
   }
 }
