@@ -1,8 +1,10 @@
-# Kiba V3: Remote Code Execution Engine
+# 🚨 Currently Under Dev
 
-> This project is built using NodeJs, and Docker. It is inspired from [Piston](engineer-man.com)
+## Kiba V3: Remote Code Execution Engine
 
-### Goals -> Deadline September 26
+> This project is built using NodeJs, and Docker. It is inspired from [Piston]()
+
+### To do
 1. Finish API
 2. Create Docker Containers
 3. Start Hosting
@@ -26,5 +28,13 @@ docker-compose.yaml
 
 At `src/index.js` the main express app starts. It calls the api inside `api/kiba` and we have our first route working at the moment using `node index`:
 
-## `GET /api/kiba`
+```bash
+# to run 
+docker-compose up -d
+
+```
+
+### `GET /api/kiba`
 Currently returns all good boss
+
+
