@@ -34,7 +34,7 @@ docker-compose up -d
 
 ```
 
-### `GET /api/kiba`
+### `GET /api/status`
 Currently returns all good boss
 
 
