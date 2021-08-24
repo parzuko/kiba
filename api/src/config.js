@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fss = require("fs");
 const Logger = require("logplease");
 const logger = Logger.create("config");
 
@@ -6,7 +6,8 @@ const options = [
     {
         key: "log_level",
         desc: "Level of data to log",
-        default: Object.values(Logger.LogLevels),
+        default: "INFO",
+        options: Object.values(Logger.LogLevels),
         validators: [
             x =>
                 Object.values(Logger.LogLevels).includes(x) ||

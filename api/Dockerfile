@@ -18,8 +18,8 @@ RUN apt-get update && \
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 
 WORKDIR /kiba_api
-COPY ["package.json", "yarn.lock", "./"]
-RUN yarn
+COPY ["package.json", "package-lock.json", "./"]
+RUN npm install
 COPY ./src ./src
 
 RUN make -C ./src/nosocket/ all && make -C ./src/nosocket/ install
