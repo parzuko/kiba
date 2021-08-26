@@ -17,4 +17,3 @@ ADD entrypoint.sh mkindex.sh /
 
 ENTRYPOINT ["bash","/entrypoint.sh"]
 CMD ["--no-build"]
-

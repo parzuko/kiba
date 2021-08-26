@@ -47,7 +47,7 @@ done
 
 cd /kiba/repo
 echo "Creating index"
-./mkindex.sh
+sh mkindex.sh
 echo "Index created"
 
 if [[ $SERVER -eq 1 ]]; then
