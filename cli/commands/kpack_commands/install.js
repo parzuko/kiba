@@ -29,7 +29,7 @@ exports.handler = async ({ axios, packages }) => {
     const requests = packages.map(package => split_package(package));
     for (request of requests) {
         try {
-            const install = await axios.post(`/api/kiba/packages`, request);
+            const install = await axios.post(`/api/packages`, request);
 
             console.log(msg_format.color(install.data));
         } catch ({ response }) {

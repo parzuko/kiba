@@ -56,4 +56,5 @@ Taken from the docker official documentation: [manage-docker-as-a-non-root-user]
 ### `GET /api/status`
 Currently returns all good boss
 
-
+## `GET /api/packages`
+Returns All Installed Runtimes
