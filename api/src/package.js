@@ -89,7 +89,7 @@ class Package {
         );
 
         await new Promise((resolve, reject) => {
-            const proc = cp.exec(
+            const proc = child_process.exec(
                 `bash -c 'cd "${this.install_path}" && tar xzf ${pkgpath}'`
             );
 
@@ -112,7 +112,7 @@ class Package {
         const envout = await new Promise((resolve, reject) => {
             let stdout = "";
 
-            const proc = cp.spawn(
+            const proc = child_process.spawn(
                 "env",
                 ["-i", "bash", "-c", `${get_env_command}`],
                 {
