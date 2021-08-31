@@ -1,19 +1,8 @@
 const chalk = require("chalk");
 
-exports.command = ["install <packages...>"];
+exports.command = ["install <language> [language_version]"];
 exports.aliases = ["i"];
 exports.describe = "Installs the named package";
-
-//Splits the package into it's language and version
-function split_package(package) {
-    [language, language_version] = package.split("=");
-
-    res = {
-        language: language,
-        version: language_version || "*",
-    };
-    return res;
-}
 
 const msg_format = {
     color: p =>
@@ -25,15 +14,17 @@ const msg_format = {
     json: JSON.stringify,
 };
 
-exports.handler = async ({ axios, packages }) => {
-    const requests = packages.map(package => split_package(package));
-    for (request of requests) {
-        try {
-            const install = await axios.post(`/api/packages`, request);
+exports.handler = async ({ axios, language, language_version }) => {
+    try {
+        const request = {
+            language,
+            version: language_version || "*",
+        };
 
-            console.log(msg_format.color(install.data));
-        } catch ({ response }) {
-            console.error(response.data.message);
-        }
+        const install = await axios.post(`/api/packages`, request);
+
+        console.log(msg_format.color(install.data));
+    } catch ({ response }) {
+        console.error(response.data.message);
     }
 };
