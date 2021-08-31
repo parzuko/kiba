@@ -93,14 +93,16 @@ const options = [
     },
     {
         key: "compile_memory_limit",
-        desc: "Max memory usage for compile stage in bytes (set to -1 for no limit)",
+        desc:
+            "Max memory usage for compile stage in bytes (set to -1 for no limit)",
         default: -1, // no limit
         parser: parse_int,
         validators: [(x, raw) => !is_nan(x) || `${raw} is not a number`],
     },
     {
         key: "run_memory_limit",
-        desc: "Max memory usage for run stage in bytes (set to -1 for no limit)",
+        desc:
+            "Max memory usage for run stage in bytes (set to -1 for no limit)",
         default: -1, // no limit
         parser: parse_int,
         validators: [(x, raw) => !is_nan(x) || `${raw} is not a number`],
@@ -108,7 +110,8 @@ const options = [
     {
         key: "repo_url",
         desc: "URL of repo index",
-        default: "https://github.com/parzuko/kiba",
+        default:
+            "https://github.com/engineer-man/piston/releases/download/pkgs/index",
         validators: [],
     },
 ];

@@ -1,5 +1,4 @@
 // Globals shouldn't change in config, but not good to use inline constant
-
 const is_docker = require("is-docker");
 const fs = require("fs");
 const platform = `${is_docker() ? "docker" : "baremetal"}-${fs
