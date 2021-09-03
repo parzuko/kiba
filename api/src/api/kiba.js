@@ -136,7 +136,10 @@ router.post("/execute", async (req, res) => {
 });
 
 router.get("/status", (req, res) => {
-    return res.status(200).send("Everything Is Great.");
+    const status = {
+        message: "Everything Is Awesome",
+    };
+    return res.status(200).send(status);
 });
 
 router.get("/runtimes", (req, res) => {
