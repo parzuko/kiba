@@ -27,4 +27,4 @@ jobs:
           pull: true
           push: true
           tags: |
-            docker.pkg.github.com/parzuko/kiba/repo-builder
+            ghcr.io/parzuko/kiba/repo-builder
