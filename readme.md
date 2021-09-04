@@ -4,12 +4,16 @@
 
 > This project is built using NodeJs, and Docker. It is inspired from [Piston]()
 
-### To do
-1. Finish API
-2. Create Docker Containers
-3. Start Hosting
-4. Create IDE
+```bash
+# to clone
+git clone https://github.com/parzuko/kiba
 
+# run container
+docker-compose up -d
+
+# install packages using cli (once only)
+cli/index.js kpack install <package> # any language python, java, gcc
+```
 
 #### Notes while running:
 
@@ -28,11 +32,7 @@ docker-compose.yaml
 
 At `src/index.js` the main express app starts. It calls the api inside `api/kiba` and we have our first route working at the moment using `node index`:
 
-```bash
-# to run 
-docker-compose up -d
 
-```
 
 
 ## Setup Details
@@ -56,5 +56,5 @@ Taken from the docker official documentation: [manage-docker-as-a-non-root-user]
 ### `GET /api/status`
 Currently returns all good boss
 
-## `GET /api/packages`
+### `GET /api/packages`
 Returns All Installed Runtimes
