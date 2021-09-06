@@ -213,23 +213,27 @@ class Job {
 
         while (processes.length > 0) {
             processes = await new Promise((resolve, reject) =>
-                cp.execFile("ps", ["awwxo", "pid,ruid"], (err, stdout) => {
-                    if (err === null) {
-                        const lines = stdout.split("\n").slice(1); //Remove header with slice
-                        const procs = lines.map(line => {
-                            const [pid, ruid] = line
-                                .trim()
-                                .split(/\s+/)
-                                .map(n => parseInt(n));
+                child_process.execFile(
+                    "ps",
+                    ["awwxo", "pid,ruid"],
+                    (err, stdout) => {
+                        if (err === null) {
+                            const lines = stdout.split("\n").slice(1); //Remove header with slice
+                            const procs = lines.map(line => {
+                                const [pid, ruid] = line
+                                    .trim()
+                                    .split(/\s+/)
+                                    .map(n => parseInt(n));
 
-                            return { pid, ruid };
-                        });
+                                return { pid, ruid };
+                            });
 
-                        resolve(procs);
-                    } else {
-                        reject(error);
+                            resolve(procs);
+                        } else {
+                            reject(error);
+                        }
                     }
-                })
+                )
             );
 
             processes = processes.filter(proc => proc.ruid === this.uid);
