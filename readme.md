@@ -46,6 +46,7 @@ cli/index.js kpack install java
 - `compile_memory_limit` (optional) The maximum amount of memory the compile stage is allowed to use in bytes. Must be a number or left out. Defaults to `-1` (no limit)
 - `run_memory_limit`(optional) The maximum amount of memory the run stage is allowed to use in bytes. Must be a number or left out. Defaults to `-1` (no limit)
 
+#### 1. VM Compiled Languages
 
 
 ```json
@@ -66,6 +67,7 @@ cli/index.js kpack install java
   "run_memory_limit": -1
 }
 ```
+#### Response 
 
 ```json
 {
@@ -81,6 +83,48 @@ cli/index.js kpack install java
 }
 ```
 
+#### 2. Manual Compile and Run
+   
+```json
+{
+  "language": "c++",
+  "version": "10.2.0",
+  "files": [
+    {
+      "name": "main",
+      "content": "#include <iostream>\nint main(){\nstd::cout<<\"hello there\";}"
+    }
+  ],
+  "stdin": "",
+  "args": [],
+  "compile_timeout": 10000,
+  "run_timeout": 10000,
+  "compile_memory_limit": -1,
+  "run_memory_limit": -1
+}
+```
+
+#### Response 
+```json
+{
+    "compile": {
+        "stdout": "",
+        "stderr": "",
+        "code": 0,
+        "signal": null,
+        "output": ""
+    },
+    "run": {
+        "stdout": "hello there",
+        "stderr": "",
+        "code": 0,
+        "signal": null,
+        "output": "hello there"
+    },
+    "language": "c++",
+    "version": "10.2.0"
+}
+```
 #### Notes while running:
 
 This project uses `no-camel`. Essentially, instead of using traditional camelCase, it will be using `snake_script`
