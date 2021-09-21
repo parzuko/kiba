@@ -2,6 +2,7 @@
 require("nocamel");
 const Logger = require("logplease");
 const express = require("express");
+const cors = require("cors");
 const globals = require("./globals");
 const config = require("./config");
 const path = require("path");
@@ -62,6 +63,7 @@ const app = express();
     logger.debug("Constructing Express App");
     logger.debug("Registering Middleware");
 
+    app.use(cors());
     app.use(body_parser.urlencoded({ extended: true }));
     app.use(body_parser.json());
 
