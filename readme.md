@@ -1,8 +1,26 @@
-# 🚨 Currently Under Dev
+# Kiba: Remote Code Execution Engine
 
-## Kiba V3: Remote Code Execution Engine
+> Kiba is a highly scalable remote code execution engine built using NodeJS, Docker. It can handle over 10,000 requests per second with containerized execution. It is the engine use in the [Apni Kaksha Playground](https://www.apnikaksha.net/playground/)
 
-> This project is built using NodeJs, and Docker. It is inspired from [Piston]()
+
+
+This is the final build of an IDE using React and the Ace Editor.
+## Editor Landing:
+<img src="assets/c++_with_output.png"/>
+
+## Code Running Animation
+<img src="assets/code_running.png"/>
+
+## Choose Languages
+<img src="assets/choose_language.png"/>
+
+## Change Language Prompt
+<img src="assets/change_language.png"/>
+
+
+
+
+
 
 ```bash
 # to clone
@@ -30,7 +48,7 @@ cli/index.js kpack install java
 
 ## Request Format and Response 
 
-`POST /api/execute`
+### 1. `POST /api/execute`
 
 ### Parameter Body Details
 
@@ -125,25 +143,100 @@ cli/index.js kpack install java
     "version": "10.2.0"
 }
 ```
-#### Notes while running:
+
+### 2. `GET /api/status`
+```json
+{
+  "message": "Everything Is Awesome"
+}
+```
+
+### 3. `GET /api/packages`
+
+```json
+[
+  {
+    "language": "gcc",
+    "language_version": "10.2.0",
+    "installed": true
+  },
+  {
+    "language": "java",
+    "language_version": "15.0.2",
+    "installed": true
+  },
+  {
+    "language": "python",
+    "language_version": "3.9.4",
+    "installed": true
+  }
+]
+```
+
+### 4. `GET /api/runtimes`
+
+```json
+[
+  {
+    "language": "c",
+    "version": "10.2.0",
+    "aliases": [
+      "gcc"
+    ],
+    "runtime": "gcc"
+  },
+  {
+    "language": "c++",
+    "version": "10.2.0",
+    "aliases": [
+      "cpp",
+      "g++"
+    ],
+    "runtime": "gcc"
+  },
+  {
+    "language": "d",
+    "version": "10.2.0",
+    "aliases": [
+      "gdc"
+    ],
+    "runtime": "gcc"
+  },
+  {
+    "language": "fortran",
+    "version": "10.2.0",
+    "aliases": [
+      "fortran",
+      "f90"
+    ],
+    "runtime": "gcc"
+  },
+  {
+    "language": "java",
+    "version": "15.0.2",
+    "aliases": [
+      
+    ]
+  },
+  {
+    "language": "python",
+    "version": "3.9.4",
+    "aliases": [
+      "py",
+      "py3",
+      "python3"
+    ]
+  }
+]
+```
+
+
+
+### Notes while running:
 
 This project uses `no-camel`. Essentially, instead of using traditional camelCase, it will be using `snake_script`
 
-Currently, structure looks like
-
-```
-api
-    src
-        api
-            kiba.js
-        index.js
-docker-compose.yaml
-```
-
 At `src/index.js` the main express app starts. It calls the api inside `api/kiba` and we have our first route working at the moment using `node index`:
-
-
-
 
 ## Setup Details
 If you want to run docker as non-root user then you need to add it to the docker group.
@@ -160,12 +253,3 @@ $ docker-compose up
 $ reboot
 ```
 Taken from the docker official documentation: [manage-docker-as-a-non-root-user](https://docs.docker.com/engine/install/linux-postinstall/)
-
-
-
-
-### `GET /api/status`
-Currently returns all good boss
-
-### `GET /api/packages`
-Returns All Installed Runtimes
